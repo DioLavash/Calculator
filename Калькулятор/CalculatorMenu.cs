@@ -1,12 +1,8 @@
-﻿namespace EngineeringCalculator
-{
-    class CalculatorMenu
-    {
-        private readonly Calculator calculator = new Calculator();
-        public void ShowMenu()
-        {
-            while (true)
-            {
+﻿namespace EngineeringCalculator {
+    class CalculatorMenu {
+        public void ShowMenu() {
+            Console.WriteLine("Добро пожаловать в Казахстан");
+            while (true) {
                 Console.Clear();
                 Console.WriteLine("Главное меню:");
                 Console.WriteLine("1. Сложение");
@@ -15,58 +11,18 @@
                 Console.WriteLine("4. Деление");
                 Console.WriteLine("5. Синус");
                 Console.WriteLine("6. Косинус");
-                Console.WriteLine("7. Выйти");
+                Console.WriteLine("7. Тангенс");
+                Console.WriteLine("8. Котангенс");
+                Console.WriteLine("9. Квадрат числа");
+                Console.WriteLine("10. Корень числа");
+                Console.WriteLine("11. Выйти");
                 Console.Write("Выберите действие: ");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "1":
-                        PerformOperation(new Addition());
-                        break;
-                    case "2":
-                        PerformOperation(new Subtraction());
-                        break;
-                    case "3":
-                        PerformOperation(new Multiplication());
-                        break;
-                    case "4":
-                        PerformOperation(new Division());
-                        break;
-                    case "5":
-                        PerformOperation(new Sine());
-                        break;
-                    case "6":
-                        PerformOperation(new Cosine());
-                        break;
-                    case "7":
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Неверный выбор.");
-                        break;
-                }
+                int choice = Convert.ToInt32 (Console.ReadLine());
+                Switch newswitch = new Switch();
+                newswitch.ChoiceOperation(choice);
             }
         }
-        void PerformOperation(Operation operation)
-        {
-            Console.WriteLine("Введите первое число: ");
-            double num1 = double.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число: ");
-            double num2 = double.Parse(Console.ReadLine());
-            try
-            {
-                double result = calculator.Calculate(num1, num2, operation);
-                Console.WriteLine($"Результат: {result}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка: {ex.Message}");
-            }
-            PressToContinue();
-        }
-
-        void PressToContinue()
-        {
+        void PressToContinue() {
             Console.WriteLine("\nНажмите любую клавишу для возврата в меню...");
             Console.ReadKey();
         }

@@ -1,7 +1,5 @@
-﻿namespace EngineeringCalculator
-{
-    class Sine : Operation
-    {
-        public override double Execute(double num1, double num2) => Math.Sin(num1);
+﻿namespace EngineeringCalculator {
+    class Sine : Operation {
+        public override double Execute(double[] num1) => Math.Sin(num1[0]);
     }
 }
